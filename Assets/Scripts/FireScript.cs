@@ -40,7 +40,7 @@ public class FireScript : MonoBehaviour
                 if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, _weapon.Range))
                 {
                 Debug.Log("Fire");
-                    if (hit.transform.gameObject.name == "Zombie")
+                    if (hit.transform.gameObject.CompareTag("zombie"))
                     {
                     Debug.Log("Fire2");
                     ZombieController zombie = hit.transform.GetComponent<ZombieController>();

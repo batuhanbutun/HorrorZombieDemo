@@ -6,10 +6,10 @@ using System.Collections;
 
 public class Flashlight_PRO : MonoBehaviour 
 {
-	[Space(10)]
-	[SerializeField()] GameObject Lights; // all light effects and spotlight
-	[SerializeField()] AudioSource switch_sound; // audio of the switcher
-	[SerializeField()] ParticleSystem dust_particles; // dust particles
+	
+	[SerializeField()] GameObject Lights; 
+	[SerializeField()] AudioSource switch_sound; 
+	[SerializeField()] ParticleSystem dust_particles; 
 
 
 
@@ -26,10 +26,9 @@ public class Flashlight_PRO : MonoBehaviour
 
 
 
-	// Use this for initialization
+
 	void Start () 
 	{
-		// cache components
 		spotlight = Lights.transform.Find ("Spotlight").GetComponent<Light> ();
 		ambient_light_material = Lights.transform.Find ("ambient").GetComponent<Renderer> ().material;
 		ambient_mat_color = ambient_light_material.GetColor ("_TintColor");
@@ -40,10 +39,6 @@ public class Flashlight_PRO : MonoBehaviour
 
 
 
-	/// <summary>
-	/// changes the intensivity of lights from 0 to 100.
-	/// call this from other scripts.
-	/// </summary>
 	public void Change_Intensivity(float percentage)
 	{
 		percentage = Mathf.Clamp (percentage, 0, 100);
@@ -57,10 +52,7 @@ public class Flashlight_PRO : MonoBehaviour
 
 
 
-	/// <summary>
-	/// switch current state  ON / OFF.
-	/// call this from other scripts.
-	/// </summary>
+	
 	public void Switch()
 	{
 		is_enabled = !is_enabled; 
@@ -75,9 +67,7 @@ public class Flashlight_PRO : MonoBehaviour
 
 
 
-	/// <summary>
-	/// enables the particles.
-	/// </summary>
+
 	public void Enable_Particles(bool value)
 	{
 		if(dust_particles != null)
